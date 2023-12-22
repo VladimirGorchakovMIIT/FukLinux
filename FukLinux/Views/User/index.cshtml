@@ -1,0 +1,48 @@
+﻿@model IEnumerable<FukLinux.Models.User>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Потребители</h1>
+
+<p>
+    <a asp-action="Create">Добавить нового пользователя</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stage)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.Stage)
+                </th>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
